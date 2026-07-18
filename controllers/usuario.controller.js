@@ -1,9 +1,9 @@
-const libroService = require('../services/libro.service');
+const usuarioService = require('../services/usuario.service');
 
 async function getAll(req, res, next) {
   try {
-    const libros = await libroService.listar();
-    res.json(libros);
+    const usuarios = await usuarioService.listar();
+    res.json(usuarios);
   } catch (error) {
     next(error);
   }
@@ -11,8 +11,8 @@ async function getAll(req, res, next) {
 
 async function getById(req, res, next) {
   try {
-    const libro = await libroService.obtenerPorId(req.params.id);
-    res.json(libro);
+    const usuario = await usuarioService.obtenerPorId(req.params.id);
+    res.json(usuario);
   } catch (error) {
     next(error);
   }
@@ -20,8 +20,8 @@ async function getById(req, res, next) {
 
 async function create(req, res, next) {
   try {
-    const libro = await libroService.crear(req.body);
-    res.status(201).json(libro);
+    const usuario = await usuarioService.crear(req.body);
+    res.status(201).json(usuario);
   } catch (error) {
     next(error);
   }
@@ -29,8 +29,8 @@ async function create(req, res, next) {
 
 async function update(req, res, next) {
   try {
-    const libro = await libroService.actualizar(req.params.id, req.body);
-    res.json(libro);
+    const usuario = await usuarioService.actualizar(req.params.id, req.body);
+    res.json(usuario);
   } catch (error) {
     next(error);
   }
@@ -38,7 +38,7 @@ async function update(req, res, next) {
 
 async function remove(req, res, next) {
   try {
-    const result = await libroService.eliminar(req.params.id);
+    const result = await usuarioService.eliminar(req.params.id);
     res.json(result);
   } catch (error) {
     next(error);
